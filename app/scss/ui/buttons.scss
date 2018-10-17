@@ -1,0 +1,107 @@
+//## Buttons
+@import "_variables";
+@import "_mixins";
+
+button {
+    appearance: none;
+    // outline: none;
+}
+
+.button {
+    font-family: $primary-font;
+    font-size: 12px;
+    padding: 2px;    
+    text-transform: none;
+    font-weight: 400;    
+    border-radius: 2px;
+    border: 0;
+    line-height: 1;
+    cursor: pointer;
+    background-color: transparent;
+    @include transition(all .3s ease);
+
+    &__expand {
+        border: none;
+        border-radius: 0px;
+        padding: 10px 16px;
+        background-color: transparent;    
+
+        &:hover {           
+            background-color: transparent;
+        }
+
+        &:focus, 
+        &:active:focus, 
+        &.active:focus {
+            background-color: transparent;
+        }   
+    }
+}
+
+.play-action i {
+    position:absolute;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .05);
+    top:50%;
+    left:50%;
+    margin-top: -20%;
+    margin-left: -20%;
+    background-size: 25%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Effect */
+.btn--effect:after {
+    background: rgba($default, 0.25);
+}
+
+.btn--effect.btn--click:after {
+    animation: circle-effect 0.5s forwards;
+}
+
+@keyframes circle-effect {
+
+    0% {
+        opacity: 1;
+        transform: scale3d(0.1, 0.1, 1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale3d(4, 4, 1);
+    }
+}
+
+.dropdown-button {
+    position: relative;
+    z-index: 4;
+}
+
+.button-share,
+.button-stream {
+    background-repeat: no-repeat;
+    background-position: center;    
+    text-indent: -9999px;
+    height: 34px;
+    width: 34px;
+    opacity: .75;
+    will-change: opacity;
+    @include transition(opacity .5s ease);
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.button-share {
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M512%20253.001L295.204%2036.204v144.388C132.168%20180.592%200%20312.76%200%20475.796c59.893-109.171%20178.724-165.462%20295.204-151.033v145.034L512%20253.001z%22%2F%3E%3C%2Fsvg%3E');    
+    background-size: 16px;    
+}
+
+.button-stream {
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22512%22%20height%3D%22512%22%20viewBox%3D%220%200%20408%20408%22%3E%0A%20%20%3Cpath%20d%3D%22M51%20153c-28.05%200-51%2022.95-51%2051s22.95%2051%2051%2051%2051-22.95%2051-51-22.95-51-51-51zm306%200c-28.05%200-51%2022.95-51%2051s22.95%2051%2051%2051%2051-22.95%2051-51-22.95-51-51-51zm-153%200c-28.05%200-51%2022.95-51%2051s22.95%2051%2051%2051%2051-22.95%2051-51-22.95-51-51-51z%22%20fill%3D%22%23FFF%22%2F%3E%0A%3C%2Fsvg%3E');
+    background-size: 24px;  
+}

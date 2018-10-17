@@ -1,0 +1,25 @@
+//## Icons
+@import "_variables";
+@import "_mixins";
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+    display: inline-block;
+
+    &__play {
+        background-image: url(../img/svg/light/play-arrow.svg);    
+        background-position: center;    
+    }    
+
+    &__pause {
+        background-image: url(../img/svg/light/pause-button.svg);
+    }
+
+    &--lg {
+        width: 44px;
+        height: 44px;
+        background-size: 24px;
+    }
+}

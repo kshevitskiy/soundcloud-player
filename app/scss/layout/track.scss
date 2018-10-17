@@ -1,0 +1,107 @@
+//## Track
+
+@import "../_variables";
+@import "../_mixins";
+
+
+.track {
+    position: relative;
+    overflow: hidden;    
+    @include transition(box-shadow .5s ease);
+
+	&:hover {
+		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.playing & {
+
+		&.active {
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+		}
+	}    
+}
+
+
+.track {	
+
+	&__cover {
+		cursor: pointer;
+		display: block;
+	}
+
+    &__artist {
+        font-family: $secondary-font;                
+        font-size: 12px;
+        opacity: .5;
+
+        a {
+            display: block;
+            @include overflow;
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0;                
+
+        span {
+            display: block;
+            @include overflow;
+        }                
+    }    	
+}
+
+.track-artwork {
+    position: relative;
+    overflow: hidden;
+}
+
+.track-meta {    
+    padding: 10px;
+    overflow: hidden;
+}
+
+.track-controls {
+    padding: 5px 10px;
+    @include flexbox;
+}
+
+
+
+
+
+
+//** Skins and colors
+.grid-layout {
+
+	.track {
+		background-color: $default;
+		color: $gray;
+
+		a {
+			color: $default;
+		}
+	}
+
+	.track-controls {		
+		background: linear-gradient(to top,rgba(0,0,0,.4),rgba(0,0,0,0));
+		color: $default;
+	}
+
+	.track-meta {    
+		background-color: $default;
+	}	
+}
+
+.list-layout {
+
+	.track {
+		background-color: $default;	
+		color: $gray;
+
+		a {
+			color: $gray;
+		}		
+	}
+}

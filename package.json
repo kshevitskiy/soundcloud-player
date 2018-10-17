@@ -1,0 +1,58 @@
+{
+  "name": "soundcloud-player",
+  "version": "0.0.1",
+  "description": "Soundcloud Player",
+  "main": "gulpfile.js",
+  "private": true,
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "soundcloud",
+    "slvr"
+  ],
+  "author": "kshevitskiy",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.19.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-changed": "^3.1.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^4.0.0",
+    "gulp-file-include": "^2.0.0",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-imports": "0.0.3",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-w3c-html-validation": "0.0.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {}
+}

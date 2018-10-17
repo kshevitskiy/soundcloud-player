@@ -1,0 +1,31 @@
+//## List
+
+@import "../_variables";
+@import "../_mixins";
+
+
+.list-layout {
+
+	.track {
+    	width: 100%;
+    	max-width: 100%;
+    	margin-bottom: 4vw;
+    	@include flexbox;
+	}
+
+	.track-artwork {
+		max-width: 20%;
+		@include flex-shrink(0);
+	}
+
+	.track-meta {
+		@include flex(1);
+	}
+
+	.track-controls {          		        	
+		position: relative;          
+		height: auto;
+		@include flexbox;
+		@include align-items(flex-start);
+	}			
+}

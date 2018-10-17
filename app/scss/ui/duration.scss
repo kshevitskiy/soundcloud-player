@@ -1,0 +1,124 @@
+//## Duration
+@import "_variables";
+@import "_mixins";
+
+
+
+  .widget {
+
+    // controls
+    .playControls {
+
+      // time
+      .playbackTime {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        padding: 16px;
+        margin: auto;
+        font-size: 12px;
+        text-align: left;
+        @include flexbox;
+        -webkit-align-items: center;
+        align-items:         center;
+
+		&__inner {
+			width: 100%;
+		}
+
+        &__current,
+        &__duration {
+          line-height: 1.2;
+          opacity: 0;        
+          @include transition(all .3s ease);
+          -webkit-touch-callout: none; 
+          -webkit-user-select: none; 
+          -khtml-user-select: none; 
+          -moz-user-select: none; 
+          -ms-user-select: none; 
+          user-select: none;
+          display: block;        	
+          clear: both;
+        }
+
+        &__current {
+          transform: translate(0, 10px);
+        }
+
+        &__duration {
+          transform: translate(0, 20px);            
+        }      
+      }
+    }    
+
+	// widget hover
+	&:hover {    
+	      
+	  // controls
+	  .playControls {      
+
+	    // time
+	    .playbackTime {
+
+	      &__current {
+	        transform: translate(0, 0);
+	        opacity: 1;
+	      }
+
+	      &__duration {
+	        transform: translate(0, 0);
+	        opacity: 0.5;
+	      }      
+	    }        
+	  }      
+	}
+
+	  // widget opened
+	  &.opened {          
+	      
+	      // controls
+	      .playControls {
+
+	        // time
+	        .playbackTime {
+	          top: auto;
+	          width: 100%;
+	          padding-left: 7px;
+	          padding-right: 7px;
+
+	          &__inner {
+				@include flexbox;
+				-webkit-justify-content: space-between;
+				justify-content:         space-between;	          	
+	          }
+
+	          &__current,
+	          &__duration {
+	            transform: translate(0, 10px);
+	          }
+	        }
+	      }
+
+	    &:hover {    
+	      
+	      // controls
+	      .playControls {
+
+	        // time
+	        .playbackTime {
+
+	          &__current {
+	            transform: translate(0, 0);
+	            opacity: 1;
+	          }
+
+	          &__duration {
+	            transform: translate(0, 0);
+	            opacity: 0.5;
+	          }      
+	        }      	
+	      }      
+	    }
+	  }	  
+  }

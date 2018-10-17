@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">    
+    <meta name="description" content="Soundcloud player">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website" />
+    <title>
+        Soundcloud Player
+    </title>    
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Roboto+Mono" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>    
+
+<div class="site">
+
+    <header class="site-header">
+        <div class="container">
+            <h1>Hello, this is a soundcloud player</h1>
+        </div>            
+    </header>
+
+    <main>
+        <div class="container">
+            <p>Voluptate ex quam autem. Dolor porro eos dignissimos velit reiciendis. Recusandae quaerat a nihil corrupti soluta vitae non, neque mollitia quo atque.</p>
+            <p>Labore culpa delectus facilis asperiores earum ad facere tempora optio! Hic quasi est ullam libero nulla ut in harum fugiat neque distinctio.</p>
+            <p>Veritatis minus cumque voluptatibus accusamus facilis error magni laboriosam ducimus molestias maxime, velit cum esse dolores eaque in quidem tempora rem delectus.</p>
+            <p>Necessitatibus dolores deleniti iste sit cupiditate voluptatibus dicta quod culpa, velit officiis! Aut expedita voluptates doloremque sed saepe distinctio quia ipsum assumenda.</p>
+        </div>  
+        <br>
+
+        <div class="container container--lg">
+            <a href="https://soundcloud.com/petitbiscuit" class="player">Track title</a>
+        </div>
+    </main>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+    $('.player').slvrPlayer({
+        // autoPlay: true,
+        // randomize: true,
+        layout: 'list',
+        // skin: 'dark',
+    });
+</script>
+</body>
+</html>

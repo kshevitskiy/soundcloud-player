@@ -1,0 +1,64 @@
+//## Scrubber
+@import "_variables";
+@import "_mixins";
+
+.widget {     
+  
+  // scrubber
+  .playbackTimeline {
+    position: absolute;
+    width: 100%;
+    height: 14px;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: rgba($default, .2);   
+    transform: translateY(10px); 
+    @include transition(transform .3s ease);    
+
+    .sc-buffer, 
+    .sc-played {
+      height: 100%;      
+      position: absolute;
+      bottom: 0;
+    }
+    .sc-seek {
+      width: 100%;
+      height: 100%;
+      position: absolute;    
+      z-index: 2;
+    }
+    .sc-buffer {
+      background-color: rgba($default, .5);
+      z-index: 1;
+      position: absolute;
+    }
+    .sc-played {      
+      background-color: $primary;
+      z-index: 2;
+    }
+        
+    // scrubber hover 
+    &:hover {
+      transform: translateY(0);
+    }        
+  }
+
+  // widget hover
+  &:hover {        
+  }
+  
+  // widget opened
+  &.opened {       
+        
+    &:hover {
+
+      // scrubber
+      .playbackTimeline {
+        height: 14px;
+      }
+    }
+  } 
+}

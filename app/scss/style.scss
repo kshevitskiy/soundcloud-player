@@ -1,0 +1,30 @@
+//## Import and compile all scss files 
+
+//** Reset
+@import "_config.scss";
+
+//** Template
+@import "template/defaults.scss";
+@import "template/typo.scss";
+@import "template/tracklist.scss";
+@import "template/share.scss";
+@import "template/widget.scss";
+@import "template/slider.scss";
+
+//** Layout
+@import "layout/track.scss";
+@import "layout/grid.scss";
+@import "layout/list.scss";
+@import "layout/single.scss";
+
+//** UI
+@import "ui/buttons.scss";
+@import "ui/input.scss";
+@import "ui/icons.scss";
+@import "ui/dropdown.scss";
+@import "ui/volume.scss";
+@import "ui/scrubber.scss";
+@import "ui/duration.scss";
+
+// Utilities
+@import "template/utilities.scss";

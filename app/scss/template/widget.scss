@@ -1,0 +1,329 @@
+//## Widget
+
+@import "../_variables";
+@import "../_mixins";
+
+.widget {
+  position: fixed;
+  width: 100%;
+  max-width: 320px;  
+  height: 100%;
+  min-height: 56px;
+  max-height: 80px;
+  bottom: 20px;
+  right: 20px;
+  padding: 0;
+  margin: auto;
+  background-color: $gray;
+  background: linear-gradient(to bottom, darken($gray, 15%), $gray);
+  color: $default;
+  z-index: 9999;
+  overflow: hidden;
+  @include transition(all .3s ease);            
+
+  // widget opened
+  &.opened {
+    max-height: 200px;
+  }
+
+  @include breakpoint(xs) {
+    max-width: 100%;
+    right: 0;
+    bottom: 0;
+
+    &.opened {
+      max-height: 100%;
+    }    
+  }
+}
+
+
+//
+// Player widget badge element
+// --------------------------------------------------
+
+.playControls {
+  
+  // badge
+  &__badge {
+    width: 100%;
+    float: left;
+    padding: 14px;
+    @include flexbox;
+    -webkit-align-items: center;
+    align-items:         center;    
+    
+    // artwork
+    .badge__artwork {
+      float: left;
+      width: 52px;
+      height: 52px;
+      margin: 0 12px 0 0;
+      background-color: transparent;
+      list-style-type: none;
+      position: relative;       
+      opacity: 1;      
+      transform: translate(0, 0);    
+      @include transition(all .3s ease);
+        li {
+          display: none;
+          img, 
+          div {
+            width: 100%;
+            min-width: 52px;
+            height: auto;
+          }                
+        }
+
+        li.active{
+          display: block;
+        }
+    }
+    
+    // title
+    .badge__title {
+      float: left;
+      text-align: left;
+      width: 100%;
+      max-width: 65%;
+      overflow: hidden;
+      position: relative;
+      opacity: 1;   
+      transform: translate(0, 0);    
+      @include transition(all .3s ease);
+
+      h4 {
+        font-size: 11px;
+        font-weight: normal;
+        margin: 0 0 4px;
+        opacity: 0.3;
+        @include overflow;
+      }
+      h3 {
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+        @include overflow;
+      }
+    }  
+  }  
+  
+  // widget hover
+  &:hover {
+
+    // badge
+    .playControls__badge {
+      .badge__artwork,
+      .badge__title {
+        opacity: 0;
+        transform: translate(0, -10px);
+        z-index: -1;
+      }
+    }    
+
+  }
+}
+
+.widget {
+
+  // widget opened
+  &.opened {
+
+    // badge
+    .playControls__badge {
+      .badge__artwork,
+      .badge__title {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    &:hover {   
+
+      // badge
+      .playControls__badge {
+        .badge__artwork,
+        .badge__title {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }    
+  }   
+}
+
+
+//
+// Player widget cover element
+// --------------------------------------------------
+.widget {     
+
+  // cover
+  &__cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    @include transition(all .3s ease);     
+  }  
+
+  // widget hover
+  &:hover {      
+    
+  }
+  
+  // widget opened
+  &.opened {       
+    
+    // cover
+    .widget__cover {
+
+      .cover__image {
+        opacity: 1;
+      }
+    }
+    
+    &:hover {    
+    
+      // cover 
+      .widget__cover {
+
+        .cover__image {
+          opacity: 0.2;
+        }
+      }      
+    }
+  } 
+}
+
+// toggle widget
+.playControls__toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-height: 80px;
+  padding: 10px 16px 10px 16px;
+  margin-left: auto;
+  opacity: 0.8;
+
+  span {
+    width: 4px;
+    height: 4px;
+    display: block;
+    border-radius: 100%;
+    background-color: white;
+    &:nth-child(2) {
+      margin: 6px 0;
+    }        
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+//
+// Player widget controls element
+// --------------------------------------------------
+.widget {
+
+  // controls
+  .playControls {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+          
+    // action
+    &__play {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      max-width: 55px;
+      max-height: 55px;        
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;        
+      margin: auto;      
+      background-color: fade($default, 5%);
+      border-radius: 50%;
+      opacity: 0;   
+      transform: translate(0, 10px);          
+      text-indent: -9999px;
+      @include transition(all .3s ease);
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        width: 100%;
+        height: 100%;
+      }
+
+      &:before {      
+        background-image: url(../img/svg/light/play-arrow.svg);
+        background-position: center;
+      }
+        
+      &.sc-pause {
+
+        &:before {      
+          background-image: url(../img/svg/light/pause-button.svg);
+        }
+      }
+    }           
+  }
+
+  // widget hover
+  &:hover {    
+      
+    // controls
+    .playControls {      
+        
+      // action
+      &__play {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }      
+  }
+
+  // widget opened
+  &.opened {          
+      
+    &:hover {    
+      
+      // controls
+      .playControls {
+
+        // action
+        &__play {
+          opacity: 1;
+          transform: translate(0, 0);
+
+          @include breakpoint(xs) {
+            max-width: 125px;
+            max-height: 125px;
+
+            &:before {
+              background-size: 24px;
+            }
+          }
+        }
+      }      
+    }
+  }    
+}

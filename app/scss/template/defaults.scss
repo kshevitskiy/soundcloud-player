@@ -1,0 +1,89 @@
+//## Default styles
+
+@import "../_variables";
+@import "../_mixins";
+
+
+html,
+body {
+	font-family: $primary-font;	
+	font-size: 24px;
+	line-height: 1.6;
+	background-color: darken($default, 5%);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+.site {
+	width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.site-header {
+    width: 100%;
+    float: left;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.slvr-player {
+    font-family: $primary-font;
+    font-size: 16px;
+    line-height: 1.6;    
+    position: relative;
+
+    a {
+        text-decoration: none;        
+    }
+
+    ul,
+    ol {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.slvr-player:not(.playing) {
+    
+  .widget {
+    opacity: 0;
+    transform: translate(0, 100%);
+    @include transition(all .3s ease);
+  }
+}
+
+.container {
+    width: 100%;
+    max-width: 820px;
+    display: block;
+    margin: 0 auto 4vw;
+    clear: both;
+
+    &--lg {
+        max-width: 100%;
+    }
+}
+
+p {
+    margin-bottom: 20px; 
+}
+
+
+
+
+
+
+
+
+
+

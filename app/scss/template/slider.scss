@@ -1,0 +1,87 @@
+//## Slider
+
+@import "../_variables";
+@import "../_mixins";
+
+.slider {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+
+	@include breakpoint(xs) {
+		
+		.container {
+			padding: 0;
+		}		
+	}
+}
+
+.slide {
+	position: relative;
+	min-height: 60vh;
+	background-color: $default;
+
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		background-size: cover;
+		background-position: top;	
+	}
+
+	&__caption {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: $spacing;
+		z-index: 10;
+		@include flexbox;
+		@include align-items(center);
+		@include flex-direction(column);
+		@include justify-content(center);
+
+		.blockquote {
+			border: none;
+			background-color: transparent;
+			color: $primary;
+			clear: none;
+			width: 100%;
+			max-width: 720px;
+
+			@include breakpoint(xs) {
+				width: 100%;
+				clear: both;
+			}
+
+			span {
+				position: relative;	
+				font-weight: 700;
+				display: inline-block;
+				@extend .h1;
+			}
+		}
+	}
+}
+
+.pagination {
+	text-align: center;
+	margin-bottom: 0;
+
+	.swiper-pagination-bullet {
+		width: 10px;
+		height: 10px;
+		background-color: $gray-lighter;
+		margin: 0 10px !important;
+	}
+
+	.swiper-pagination-bullet-active {
+		background-color: $primary;
+		opacity: 1;
+	}
+}

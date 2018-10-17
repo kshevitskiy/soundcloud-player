@@ -1,0 +1,15 @@
+//## Single
+
+@import "../_variables";
+@import "../_mixins";
+
+.tracklist {
+
+	&.single {
+		@include flexbox;
+		@include flex-direction(row);
+		@include flex-wrap(wrap);
+		@include justify-content(center);
+		@include align-items(center);
+	}
+}

@@ -1,0 +1,109 @@
+//## Grid
+
+@import "../_variables";
+@import "../_mixins";
+
+
+//** Flexbox fallback if browser does not support display:grid
+.grid-layout {
+	width: auto;
+	height: auto;
+	@include flexbox;
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
+	@include justify-content(space-between);
+	@include align-items(center);
+
+	.track {
+		flex: 0 1 calc(25% - 2vw);
+		width: calc(25% - 2vw);
+		margin: 0 0 4vw;
+	}
+
+	@include breakpoint(md) {
+
+		.track { 
+			flex: 0 1 calc(33.333% - 2vw); 
+			width: calc(33.333% - 2vw);
+		}			
+	}
+
+	@include breakpoint(sm) {
+
+		.track { 
+			flex: 0 1 calc(50% - 2vw); 
+			width: calc(50% - 2vw);
+		}			
+	}
+
+	@include breakpoint(xs) {
+
+		.track { 
+			flex: 0 1 100%; 
+			width: 100%;
+		}			
+	}
+}
+
+//** Use display:grid if browser support it
+@supports (display: grid) {
+	.grid-layout {		
+		display: grid;
+		grid-gap: 2vw;
+		grid-row-gap: 4vw;
+		grid-template-columns: repeat(4, 1fr);
+
+		.track {
+			width: auto;
+			margin: 0;
+		}
+
+		@include breakpoint(md) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include breakpoint(sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include breakpoint(xs) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}
+
+.grid-layout {
+
+	.track-controls {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		transform: translateY(100%);
+		@include transition(all .3s ease)				
+		@include align-items(center);
+		@include justify-content(flex-end);
+	}
+
+	//** On track hover
+	.track {
+		
+		.playing & {
+
+			&.active {
+
+				.track-controls {
+					transform: translateY(0);
+				}
+			}
+		}
+
+		&:hover {
+
+			.track-controls {
+				transform: translateY(0);
+			}
+		}
+	}
+}
+

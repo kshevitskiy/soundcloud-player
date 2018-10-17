@@ -1,0 +1,7 @@
+node_modules/*
+/.tmp/*
+/dist/
+/video/
+/mov/
+*.mp3
+*.mp4
